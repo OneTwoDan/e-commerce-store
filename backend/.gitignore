@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Entorno
+.env
+
+# Archivos de construcción / producción
+/build
+/dist
+/out
+
+# Archivos de desarrollo / temporales
+.DS_Store
+.vscode/
+.idea/
