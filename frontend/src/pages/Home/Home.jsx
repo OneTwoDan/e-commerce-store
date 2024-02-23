@@ -2,6 +2,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import OutlinedFlagIcon from "@mui/icons-material/OutlinedFlag";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Link } from "react-router-dom";
 
 import Footer from "../../components/Footer/Footer";
 import SearchBar from "../../components/SearchBar";
@@ -17,10 +18,18 @@ const Home = () => {
     <div>
       <div className="container">
         <div className="category-menu">
-          <div className="category">Women</div>
-          <div className="category">Men</div>
-          <div className="category">Kids</div>
-          <div className="category">Beauty</div>
+          <Link to="/women" className="category">
+            Women
+          </Link>
+          <Link to="/men" className="category">
+            Men
+          </Link>
+          <Link to="/kids" className="category">
+            Kids
+          </Link>
+          <Link to="/beauty" className="category">
+            Beauty
+          </Link>
         </div>
         <img className="store-title" src={Logo} alt="logo" />
         <div className="icon-container">
