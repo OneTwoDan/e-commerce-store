@@ -1,0 +1,19 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 250px;
+}
+
+.product-card {
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h3 {
+  margin-bottom: -10px;
+}
