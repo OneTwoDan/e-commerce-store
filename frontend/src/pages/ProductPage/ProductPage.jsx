@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Navbar from "../../components/Navbar/Navbar";
 import Cards from "../../components/Cards/Cards";
+import Footer from "../../components/Footer/Footer";
 
 const ProductPage = ({ category }) => {
   const [currentCategory, setCurrentCategory] = useState(category);
@@ -14,6 +15,7 @@ const ProductPage = ({ category }) => {
     <div>
       <Navbar />
       <Cards category={currentCategory} />
+      <Footer />
     </div>
   );
 };
