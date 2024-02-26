@@ -3,17 +3,20 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import "./cards.css";
 
+import Loading from "../../assets/images/loading.gif";
+
 const Cards = ({ category }) => {
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     async function fetchProducts() {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products?category=${category}`
+          `http://localhost:5000/api/products/${category}`
         );
         setProducts(response.data.results);
-        console.log("response", response.data.results);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -22,10 +25,18 @@ const Cards = ({ category }) => {
     fetchProducts();
   }, [category]);
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <img src={Loading} alt="Loading..." />
+      </div>
+    );
+  }
+
   return (
     <div className="product-list">
       {products.map((product) => (
-        <div key={product.id} className="product-card">
+        <div key={product.pk} className="product-card">
           <img
             src={product.defaultArticle.images[0].url}
             alt={product.defaultArticle.name}

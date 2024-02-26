@@ -17,3 +17,15 @@
 .product-info h3 {
   margin-bottom: -10px;
 }
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.loading-container img {
+  width: 400px;
+  height: 400px;
+}
