@@ -29,3 +29,9 @@
   width: 300px;
   height: 300px;
 }
+
+.link-style {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

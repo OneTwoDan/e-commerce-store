@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./cards.css";
 
 import Loading from "../../assets/images/loading.gif";
@@ -37,15 +38,16 @@ const Cards = ({ category }) => {
     <div className="product-list">
       {products.map((product) => (
         <div key={product.pk} className="product-card">
-          <img
-            src={product.defaultArticle.images[0].url}
-            alt={product.defaultArticle.name}
-          />
-          {/* <p> Category {product.categoryName}</p> */}
-          <div className="product-info">
-            <h3>{product.articles[0].name}</h3>
-            <p>${product.whitePrice.value}</p>
-          </div>
+          <Link to={`/${product.pk}`} className="link-style">
+            <img
+              src={product.defaultArticle.images[0].url}
+              alt={product.defaultArticle.name}
+            />
+            <div className="product-info">
+              <h3>{product.articles[0].name}</h3>
+              <p>${product.whitePrice.value}</p>
+            </div>
+          </Link>
         </div>
       ))}
     </div>
