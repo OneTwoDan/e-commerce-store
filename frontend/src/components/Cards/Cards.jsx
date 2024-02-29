@@ -1,30 +1,17 @@
-import { useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import "./cards.css";
-
 import Loading from "../../assets/images/loading.gif";
+import ProductsContext from "../../context/ProductContext";
 
 const Cards = ({ category }) => {
-  const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState([]);
+  const { products, loading, fetchProductsByCategory } =
+    useContext(ProductsContext);
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await axios.get(
-          `http://localhost:5000/api/products/${category}`
-        );
-        setProducts(response.data.results);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    }
-
-    fetchProducts();
-  }, [category]);
+    fetchProductsByCategory(category);
+  }, [category, fetchProductsByCategory]);
 
   if (loading) {
     return (
@@ -38,7 +25,7 @@ const Cards = ({ category }) => {
     <div className="product-list">
       {products.map((product) => (
         <div key={product.pk} className="product-card">
-          <Link to={`/${product.pk}`} className="link-style">
+          <Link to={`/details/${product.pk}`} className="link-style">
             <img
               src={product.defaultArticle.images[0].url}
               alt={product.defaultArticle.name}
