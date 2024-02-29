@@ -1,16 +1,16 @@
 .footer-container {
-  background-color: black;
-  color: white;
+  background-color: #e6e6e6;
+  color: black;
   text-align: center;
   padding: 10px;
 }
 
 .newsletter-input .MuiInputLabel-root {
-  color: white !important;
+  color: black !important;
 }
 
 .newsletter-input .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-  border-color: white !important;
+  border-color: black !important;
 }
 
 .newsletter {
@@ -24,4 +24,16 @@
 .footer-links-container {
   display: flex;
   justify-content: space-evenly;
+}
+
+button.subscribe {
+  margin-left: 15px;
+  background-color: black;
+  border-color: white;
+  color: white;
+}
+
+button.subscribe:hover {
+  background-color: #888;
+  color: white;
 }

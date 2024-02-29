@@ -13,7 +13,7 @@ function Footer() {
           variant="outlined"
           placeholder="your@email.com"
         />
-        <Button variant="contained" className="newsletter-button" size="large">
+        <Button variant="contained" className="subscribe" size="large">
           Subscribe
         </Button>
       </div>

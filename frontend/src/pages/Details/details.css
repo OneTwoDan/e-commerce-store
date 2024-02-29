@@ -1,0 +1,94 @@
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  padding: 14px;
+}
+
+.product-details {
+  padding: 45px;
+}
+
+.product-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-season {
+  font-size: 16px;
+  color: #727272;
+  margin-bottom: 2px;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 0;
+}
+
+.product-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-price p:first-child {
+  font-size: 22px;
+  margin-bottom: -15px;
+}
+
+.product-price p:last-child {
+  font-size: 15px;
+}
+
+.custom-form-control {
+  margin-left: -8px;
+}
+
+.product-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-details {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+button.add-bag {
+  width: 225px;
+  background-color: black;
+}
+
+button.add-bag:hover {
+  background-color: #888;
+  border-color: black;
+}
+
+button.wishlist {
+  margin-left: 15px;
+  border-color: black;
+  color: black;
+}
+
+button.wishlist .MuiSvgIcon-root path {
+  fill: none;
+  stroke: black;
+}
+
+button.wishlist:hover {
+  border-color: black;
+  background-color: #e6e6e6;
+}
+
+button.wishlist:hover .MuiSvgIcon-root path {
+  fill: black;
+}
+
+.delivery-text {
+  font-size: 17px;
+}
+
+.delivery-variable {
+  font-size: 15px;
+}
