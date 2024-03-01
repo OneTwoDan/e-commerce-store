@@ -13,6 +13,10 @@ const Cards = ({ category }) => {
     fetchProductsByCategory(category);
   }, [category, fetchProductsByCategory]);
 
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
+
   if (loading) {
     return (
       <div className="loading-container">

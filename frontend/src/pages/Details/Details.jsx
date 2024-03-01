@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import ProductsContext from "../../context/ProductContext";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -13,10 +12,21 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./details.css";
 
 const Details = () => {
-  const { products } = useContext(ProductsContext);
+  /* const { products } = useContext(ProductsContext); */
   const { id } = useParams();
 
-  const product = products.find((product) => product.pk === id);
+  const [product, setProduct] = useState(null);
+  const [selectedSize, setSelectedSize] = useState("");
+
+  useEffect(() => {
+    const storedProductsJSON = localStorage.getItem("products");
+    if (storedProductsJSON) {
+      const storedProducts = JSON.parse(storedProductsJSON);
+      const foundProduct = storedProducts.find((prod) => prod.pk === id);
+      setProduct(foundProduct);
+    }
+  }, [id]);
+
   const deliveryDate = new Date();
   deliveryDate.setDate(deliveryDate.getDate() + 15);
 
@@ -29,11 +39,13 @@ const Details = () => {
     return `${firstDay} - ${secondDay}`;
   };
 
-  const [selectedSize, setSelectedSize] = useState("");
-
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
   };
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
