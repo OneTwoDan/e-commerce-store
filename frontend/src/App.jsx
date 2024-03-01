@@ -3,6 +3,7 @@ import { ProductsProvider } from "../src/context/ProductContext";
 import Details from "./pages/Details/Details";
 import Home from "./pages/Home/Home";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import Basket from "./components/Basket/Basket";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <ProductsProvider>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/basket" element={<Basket />} />
             <Route
               exact
               path="/women"

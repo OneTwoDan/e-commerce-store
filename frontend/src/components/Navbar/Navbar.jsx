@@ -33,7 +33,12 @@ const Navbar = () => {
           <OutlinedFlagIcon className="icon" style={{ fontSize: 30 }} />
           <PersonOutlineIcon className="icon" style={{ fontSize: 30 }} />
           <FavoriteBorderIcon className="icon" style={{ fontSize: 30 }} />
-          <ShoppingCartOutlinedIcon className="icon" style={{ fontSize: 30 }} />
+          <Link to="/basket">
+            <ShoppingCartOutlinedIcon
+              className="icon"
+              style={{ fontSize: 30 }}
+            />
+          </Link>
         </div>
         <div className="search-bar">
           <SearchBar />
