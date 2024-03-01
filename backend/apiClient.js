@@ -12,7 +12,9 @@ async function fetchDataFromApi(category) {
             categories: getCategory(category)
         },
         headers: {
-            'X-RapidAPI-Key': '9c8f9c31c0msha0be952da35dddep181571jsnd3689b44bbee',
+            /* 'X-RapidAPI-Key': '9c8f9c31c0msha0be952da35dddep181571jsnd3689b44bbee',
+            'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com' */
+            'X-RapidAPI-Key': 'a114a2b431mshbbe7c8164787176p1b09f7jsne444fa8553f5',
             'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
         }
     };
