@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 import "./basket.css";
 
@@ -27,6 +29,7 @@ const Basket = () => {
 
   const delivery = 25.0;
 
+  console.log("basketItems", basketItems);
   return (
     <div className="basket-container">
       <Navbar />
@@ -46,14 +49,26 @@ const Basket = () => {
         ) : (
           <div className="full-basket">
             <div className="basket-items">
-              <ul>
-                {basketItems.map((item, index) => (
-                  <li key={index}>
-                    <strong>{item.articles[0].name}</strong> - Size:{" "}
-                    {item.selectedSize}
-                  </li>
-                ))}
-              </ul>
+              {basketItems.map((item, index) => (
+                <div key={index} className="item-summary">
+                  <div className="product-basket-image">
+                    <img
+                      src={item.defaultArticle.images[0].url}
+                      alt={item.defaultArticle.name}
+                    />
+                  </div>
+                  <div className="item-details">
+                    <p>{item.articles[0].name}</p>
+                    <p> Size: {item.selectedSize}</p>
+                    <p>{item.whitePrice.value}</p>
+                    <p>{item.quantity}</p>
+                    <p>ID: {item.pk}</p>
+                    <IconButton>
+                      <CloseIcon />
+                    </IconButton>
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="summary">
               <h2>Summary</h2>

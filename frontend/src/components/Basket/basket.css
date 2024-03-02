@@ -28,3 +28,23 @@
   display: flex;
   justify-content: space-around;
 }
+
+.item-summary {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.item-summary:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.item-summary:last-child {
+  border-bottom: none;
+}
+
+.product-basket-image img {
+  max-width: 100px;
+  max-height: 150px;
+  padding: 25px;
+}
