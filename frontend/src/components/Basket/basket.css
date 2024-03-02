@@ -23,3 +23,8 @@
   width: 100%;
   z-index: 1000;
 }
+
+.full-basket {
+  display: flex;
+  justify-content: space-around;
+}

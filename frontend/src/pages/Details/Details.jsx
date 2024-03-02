@@ -12,11 +12,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./details.css";
 
 const Details = () => {
-  /* const { products } = useContext(ProductsContext); */
   const { id } = useParams();
 
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
+  const [bag, setBag] = useState([]);
 
   useEffect(() => {
     const storedProductsJSON = localStorage.getItem("products");
@@ -26,6 +26,31 @@ const Details = () => {
       setProduct(foundProduct);
     }
   }, [id]);
+
+  useEffect(() => {
+    if (bag.length > 0) {
+      localStorage.setItem("basket", JSON.stringify(bag));
+    }
+  }, [bag]);
+
+  const addToBag = () => {
+    if (selectedSize) {
+      const storedBag = localStorage.getItem("basket");
+      let currentBag = [];
+      if (storedBag) {
+        currentBag = JSON.parse(storedBag);
+      }
+
+      const updatedBag = [
+        ...currentBag,
+        { ...product, selectedSize, quantity: 1 },
+      ];
+
+      localStorage.setItem("basket", JSON.stringify(updatedBag));
+
+      setBag(updatedBag);
+    }
+  };
 
   const deliveryDate = new Date();
   deliveryDate.setDate(deliveryDate.getDate() + 15);
@@ -40,6 +65,7 @@ const Details = () => {
   };
 
   const handleSizeChange = (event) => {
+    console.log("event", event.target.value);
     setSelectedSize(event.target.value);
   };
 
@@ -95,7 +121,11 @@ const Details = () => {
             )}
 
             <div className="buttons-details">
-              <Button variant="contained" className="add-bag">
+              <Button
+                variant="contained"
+                className="add-bag"
+                onClick={addToBag}
+              >
                 Add to bag
               </Button>
               <Button
