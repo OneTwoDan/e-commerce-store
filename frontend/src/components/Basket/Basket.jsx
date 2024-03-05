@@ -58,11 +58,23 @@ const Basket = () => {
                     />
                   </div>
                   <div className="item-details">
-                    <p>{item.articles[0].name}</p>
-                    <p> Size: {item.selectedSize}</p>
-                    <p>{item.whitePrice.value}</p>
-                    <p>{item.quantity}</p>
-                    <p>ID: {item.pk}</p>
+                    <div>
+                      <p>{item.articles[0].name}</p>
+                      <p>Store ID: {item.pk}</p>
+                    </div>
+                    <div>
+                      <p>$ {item.whitePrice.value}</p>
+                    </div>
+                    <div>
+                      <p className="size-info">
+                        <span> Size </span>
+                        <span> {item.selectedSize} </span>
+                      </p>
+                      <p className="quantity-info">
+                        <span> Quantity </span>
+                        <span> {item.quantity} </span>
+                      </p>
+                    </div>
                     <IconButton>
                       <CloseIcon />
                     </IconButton>
@@ -75,7 +87,7 @@ const Basket = () => {
               <div className="total">
                 <p>
                   <span>Subtotal</span>
-                  <span>{calculateSubtotal()}</span>
+                  <span>$ {calculateSubtotal()}</span>
                 </p>
                 <p>
                   <span>Delivery</span>
@@ -85,6 +97,9 @@ const Basket = () => {
                   <span>Total</span>
                   <span>$ {calculateSubtotal() + delivery}</span>
                 </p>
+                <Button variant="contained" className="checkout">
+                  Go To Checkout
+                </Button>
               </div>
             </div>
           </div>

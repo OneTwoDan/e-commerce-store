@@ -48,3 +48,50 @@
   max-height: 150px;
   padding: 25px;
 }
+
+.item-details {
+  display: flex;
+  padding: 10px;
+}
+
+.item-details > div p:first-child {
+  font-weight: bold;
+}
+
+.item-details > div p:first-child {
+  font-weight: bold;
+}
+
+.item-details > div {
+  margin-right: 90px;
+}
+
+.item-details > div > p span {
+  display: block;
+}
+
+.total p {
+  margin-bottom: 30px;
+
+  position: relative;
+}
+
+.total p:nth-child(2) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.total p span:first-child {
+  display: inline-block;
+  width: 250px;
+}
+
+button.checkout {
+  background-color: black;
+  width: 320px;
+}
+
+button.checkout:hover {
+  background-color: #888;
+  color: white;
+}
