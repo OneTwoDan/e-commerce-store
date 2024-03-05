@@ -21,13 +21,29 @@ const Basket = () => {
     let subtotal = 0;
     for (let item of basketItems) {
       if (item.price.value && item.quantity) {
-        subtotal += item.price.value * item.quantity;
+        subtotal += parseFloat(item.price.value) * item.quantity;
       }
     }
-    return subtotal;
+    return subtotal.toFixed(2);
   };
 
-  const delivery = 25.0;
+  const delivery = 25;
+
+  const removeItem = (index) => {
+    const updatedBasket = [...basketItems];
+    updatedBasket.splice(index, 1);
+    setBasketItems(updatedBasket);
+    localStorage.setItem("basket", JSON.stringify(updatedBasket));
+  };
+
+  const updateQuantity = (index, newQuantity) => {
+    if (newQuantity >= 1) {
+      const updatedBasket = [...basketItems];
+      updatedBasket[index].quantity = newQuantity;
+      setBasketItems(updatedBasket);
+      localStorage.setItem("basket", JSON.stringify(updatedBasket));
+    }
+  };
 
   console.log("basketItems", basketItems);
   return (
@@ -65,17 +81,23 @@ const Basket = () => {
                     <div>
                       <p>$ {item.whitePrice.value}</p>
                     </div>
-                    <div>
-                      <p className="size-info">
-                        <span> Size </span>
-                        <span> {item.selectedSize} </span>
-                      </p>
-                      <p className="quantity-info">
-                        <span> Quantity </span>
-                        <span> {item.quantity} </span>
-                      </p>
+
+                    <div className="quantity-selector">
+                      <div>Quantity</div>
+                      <Button
+                        onClick={() => updateQuantity(index, item.quantity - 1)}
+                      >
+                        -
+                      </Button>
+                      <span>{item.quantity}</span>
+                      <Button
+                        onClick={() => updateQuantity(index, item.quantity + 1)}
+                      >
+                        +
+                      </Button>
                     </div>
-                    <IconButton>
+
+                    <IconButton onClick={() => removeItem(index)}>
                       <CloseIcon />
                     </IconButton>
                   </div>
@@ -93,10 +115,20 @@ const Basket = () => {
                   <span>Delivery</span>
                   <span>$ {delivery}.00</span>
                 </p>
-                <p>
+                {/* <p>
                   <span>Total</span>
                   <span>$ {calculateSubtotal() + delivery}</span>
+                </p> */}
+                <p>
+                  <span>Total</span>
+                  <span>
+                    ${" "}
+                    {(
+                      parseFloat(calculateSubtotal()) + parseFloat(delivery)
+                    ).toFixed(2)}
+                  </span>
                 </p>
+
                 <Button variant="contained" className="checkout">
                   Go To Checkout
                 </Button>

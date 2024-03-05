@@ -17,6 +17,7 @@ const Details = () => {
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("");
   const [bag, setBag] = useState([]);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const storedProductsJSON = localStorage.getItem("products");
@@ -43,7 +44,7 @@ const Details = () => {
 
       const updatedBag = [
         ...currentBag,
-        { ...product, selectedSize, quantity: 1 },
+        { ...product, selectedSize, quantity },
       ];
 
       localStorage.setItem("basket", JSON.stringify(updatedBag));
@@ -67,6 +68,16 @@ const Details = () => {
   const handleSizeChange = (event) => {
     console.log("event", event.target.value);
     setSelectedSize(event.target.value);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   if (!product) {
@@ -95,6 +106,14 @@ const Details = () => {
             <p>$ {product.whitePrice.value}</p>
             <p>Import duties included</p>
           </div>
+
+          <div className="quantity-selector">
+            <div>Select Quantity</div>
+            <Button onClick={decreaseQuantity}>-</Button>
+            <span>{quantity}</span>
+            <Button onClick={increaseQuantity}>+</Button>
+          </div>
+
           <div className="product-buttons">
             {product.variantSizes.length === 0 && (
               <div>{"One Size available"}</div>
