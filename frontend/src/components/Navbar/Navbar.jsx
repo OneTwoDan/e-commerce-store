@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -9,25 +9,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import "./navbar.css";
 
-const Navbar = () => {
-  const [cartItemCount, setCartItemCount] = useState(0);
-
-  useEffect(() => {
-    const storedBasket = localStorage.getItem("basket");
-
-    if (storedBasket) {
-      const parsedBasket = JSON.parse(storedBasket);
-      const itemsQuantity = parsedBasket.map((item) => item.quantity);
-
-      const totalQuantity = itemsQuantity.reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
-        0
-      );
-
-      setCartItemCount(totalQuantity);
-    }
-  }, []);
-
+const Navbar = ({ cartItemsCount }) => {
   return (
     <div className="container">
       <div className="category-menu">
@@ -56,7 +38,7 @@ const Navbar = () => {
             <FavoriteBorderIcon className="icon" style={{ fontSize: 30 }} />
           </div>
           <Link to="/basket">
-            <Badge badgeContent={cartItemCount} color="secondary">
+            <Badge badgeContent={cartItemsCount} color="secondary">
               <ShoppingCartOutlinedIcon
                 className="icon"
                 style={{ fontSize: 30 }}
@@ -70,6 +52,10 @@ const Navbar = () => {
       </div>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  cartItemsCount: PropTypes.number.isRequired,
 };
 
 export default Navbar;

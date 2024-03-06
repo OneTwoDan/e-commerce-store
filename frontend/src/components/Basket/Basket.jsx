@@ -9,13 +9,19 @@ import "./basket.css";
 
 const Basket = () => {
   const [basketItems, setBasketItems] = useState([]);
+  const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
     const storedBasket = localStorage.getItem("basket");
     if (storedBasket) {
       setBasketItems(JSON.parse(storedBasket));
     }
-  }, []);
+    const totalItems = basketItems.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.quantity,
+      0
+    );
+    setCartItemCount(totalItems);
+  }, [basketItems]);
 
   const calculateSubtotal = () => {
     let subtotal = 0;
@@ -48,7 +54,7 @@ const Basket = () => {
   console.log("basketItems", basketItems);
   return (
     <div className="basket-container">
-      <Navbar />
+      <Navbar cartItemsCount={cartItemCount} />
       <div className="basket-content">
         <h1>SHOPPING BAG</h1>
         {basketItems.length === 0 ? (
