@@ -49,8 +49,12 @@ const Navbar = () => {
       </Link>
       <div className="icon-container">
         <div className="icons">
-          <PersonOutlineIcon className="icon" style={{ fontSize: 30 }} />
-          <FavoriteBorderIcon className="icon" style={{ fontSize: 30 }} />
+          <div>
+            <PersonOutlineIcon className="icon" style={{ fontSize: 30 }} />
+          </div>
+          <div>
+            <FavoriteBorderIcon className="icon" style={{ fontSize: 30 }} />
+          </div>
           <Link to="/basket">
             <Badge badgeContent={cartItemCount} color="secondary">
               <ShoppingCartOutlinedIcon
