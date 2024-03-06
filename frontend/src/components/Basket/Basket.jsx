@@ -51,7 +51,6 @@ const Basket = () => {
     }
   };
 
-  console.log("basketItems", basketItems);
   return (
     <div className="basket-container">
       <Navbar cartItemsCount={cartItemCount} />
@@ -121,10 +120,6 @@ const Basket = () => {
                   <span>Delivery</span>
                   <span>$ {delivery}.00</span>
                 </p>
-                {/* <p>
-                  <span>Total</span>
-                  <span>$ {calculateSubtotal() + delivery}</span>
-                </p> */}
                 <p>
                   <span>Total</span>
                   <span>

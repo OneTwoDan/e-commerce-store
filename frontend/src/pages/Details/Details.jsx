@@ -18,6 +18,7 @@ const Details = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [bag, setBag] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
     const storedProductsJSON = localStorage.getItem("products");
@@ -32,6 +33,13 @@ const Details = () => {
     if (bag.length > 0) {
       localStorage.setItem("basket", JSON.stringify(bag));
     }
+
+    const totalItemsCount = bag.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.quantity,
+      0
+    );
+
+    setTotalItems(totalItemsCount);
   }, [bag]);
 
   const addToBag = () => {
@@ -66,7 +74,6 @@ const Details = () => {
   };
 
   const handleSizeChange = (event) => {
-    console.log("event", event.target.value);
     setSelectedSize(event.target.value);
   };
 
@@ -86,7 +93,7 @@ const Details = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar cartItemsCount={totalItems} />
       <div className="details-container">
         <div className="product-image">
           <img
