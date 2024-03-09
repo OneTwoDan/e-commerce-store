@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import Badge from "@mui/material/Badge";
 import { Link } from "react-router-dom";
 
@@ -13,22 +13,24 @@ const Navbar = ({ cartItemsCount }) => {
   return (
     <div className="container">
       <div className="category-menu">
-        <Link to="/women" className="category">
-          Women
+        <Link to="/">
+          <img className="store-title" src={Logo} alt="logo" />
         </Link>
-        <Link to="/men" className="category">
-          Men
-        </Link>
-        <Link to="/kids" className="category">
-          Kids
-        </Link>
-        <Link to="/beauty" className="category">
-          Beauty
-        </Link>
+        <div className="categories">
+          <Link to="/women" className="category">
+            Women
+          </Link>
+          <Link to="/men" className="category">
+            Men
+          </Link>
+          <Link to="/kids" className="category">
+            Kids
+          </Link>
+          <Link to="/beauty" className="category">
+            Beauty
+          </Link>
+        </div>
       </div>
-      <Link to="/">
-        <img className="store-title" src={Logo} alt="logo" />
-      </Link>
       <div className="icon-container">
         <div className="icons">
           <div>

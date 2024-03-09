@@ -9,6 +9,7 @@ const SearchBar = () => {
       type="search"
       variant="outlined"
       size="small"
+      sx={{ width: "350px" }}
       InputProps={{
         startAdornment: (
           <SearchIcon

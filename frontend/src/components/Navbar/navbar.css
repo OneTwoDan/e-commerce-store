@@ -1,18 +1,16 @@
 .container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .category-menu {
   display: flex;
-  margin-left: 30px;
+  flex-direction: column;
 }
 
 .category {
-  margin-right: 25px;
   text-decoration: none;
-  margin-bottom: 75px;
   transition: color 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
   padding: 10px 20px;
   border-radius: 10px;
@@ -24,15 +22,11 @@
   color: white;
 }
 
-.store-title {
-  width: 350px;
-}
-
 .icon-container {
   display: flex;
-  margin-right: 30px;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .icons {
@@ -47,4 +41,11 @@
 
 .icon:hover {
   background-color: #f2f2f3;
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center; /* Centrar en dispositivos móviles */
+    padding: 10px; /* Ajusta el relleno para dispositivos móviles */
+  }
 }

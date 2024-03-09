@@ -1,4 +1,4 @@
-.department {
+/* .department {
   text-align: center;
   font-size: 30px;
   font-weight: normal;
@@ -14,10 +14,10 @@
   width: 600px;
   margin-right: 100px;
   margin-bottom: 40px;
-}
+} */
 
 /* Styles for tablets */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
+/* @media only screen and (min-width: 601px) and (max-width: 1024px) {
   .container {
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@
     max-width: 300px;
     margin-bottom: 20px;
   }
-}
+} */
 
 /* Styles for Mobile */
 @media only screen and (max-width: 600px) {
@@ -56,12 +56,7 @@
   }
 
   .category-menu {
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-
-  .store-title {
-    width: auto;
+    margin-bottom: 20px;
   }
 
   .icon-container {
@@ -69,12 +64,8 @@
     margin-bottom: 10px;
   }
 
-  .search-bar {
-    margin-bottom: 10px;
-  }
-
   .department {
-    font-size: 20px;
+    text-align: center;
     margin-top: 40px;
     margin-bottom: 20px;
   }
