@@ -5,6 +5,8 @@ import "./cards.css";
 import Loading from "../../assets/images/loading.gif";
 import ProductsContext from "../../context/ProductContext";
 
+import data from "../../data/data.json";
+
 const Cards = ({ category }) => {
   const { products, loading, fetchProductsByCategory } =
     useContext(ProductsContext);
@@ -25,9 +27,11 @@ const Cards = ({ category }) => {
     );
   }
 
+  /* console.log("products", products); */
+  /* console.log("data", data); */
   return (
     <div className="product-list">
-      {products.map((product) => (
+      {data.map((product) => (
         <div key={product.pk} className="product-card">
           <Link to={`/details/${product.pk}`} className="link-style">
             <img

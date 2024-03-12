@@ -1,11 +1,11 @@
 .product-list {
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 250px;
+  justify-content: space-evenly;
 }
 
 .product-card {
-  margin-right: 50px;
   margin-bottom: 20px;
 }
 
@@ -35,4 +35,10 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 600px) {
 }
