@@ -56,7 +56,7 @@ h3 {
 }
 
 button.add-bag {
-  width: 225px;
+  width: 230px;
   background-color: black;
 }
 
@@ -91,4 +91,67 @@ button.wishlist:hover .MuiSvgIcon-root path {
 
 .delivery-variable {
   font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* Styles for tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+}
+
+/* Styles for Mobile */
+@media only screen and (max-width: 600px) {
+  .details-container {
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+
+  .product-details {
+    padding: 0px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+  }
+
+  .product-season {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: -10px;
+  }
+
+  .product-price p:first-child {
+    font-size: 18px;
+    margin-bottom: -10px;
+  }
+
+  .product-price p:last-child {
+    font-size: 12px;
+  }
+
+  .buttons-details {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button.add-bag {
+    width: 350px;
+  }
+
+  button.wishlist {
+    margin-top: 12px;
+    width: 175px;
+  }
+
+  .delivery-text {
+    font-size: 15px;
+  }
+
+  .delivery-variable {
+    font-size: 14px;
+  }
 }

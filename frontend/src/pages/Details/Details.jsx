@@ -127,7 +127,7 @@ const Details = () => {
             )}
             {product.variantSizes.length > 0 && (
               <div className="custom-form-control">
-                <FormControl sx={{ m: 1, minWidth: 362 }}>
+                <FormControl sx={{ m: 1, minWidth: 365 }}>
                   <InputLabel id="product-sizes-label">Size</InputLabel>
                   <Select
                     labelId="product-sizes-label"

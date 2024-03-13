@@ -31,7 +31,7 @@ const Cards = ({ category }) => {
   /* console.log("data", data); */
   return (
     <div className="product-list">
-      {data.map((product) => (
+      {products.map((product) => (
         <div key={product.pk} className="product-card">
           <Link to={`/details/${product.pk}`} className="link-style">
             <img
