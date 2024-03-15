@@ -1,3 +1,4 @@
+const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const fetchHmProducts = require('./apiClient');
@@ -19,6 +20,25 @@ app.get('/api/products/:category', async (req, res) => {
         console.error('Error fetching products:', error);
         res.status(500).json({ error: 'Failed to fetch products' });
     }
+
+    /*  fs.readFile('data/data.json', 'utf8', (err, data) => {
+         if (err) {
+             console.error('Error reading products file:', err);
+             res.status(500).json({ error: 'Failed to read products file' });
+             return;
+         }
+ 
+         try {
+             const products = JSON.parse(data);
+ 
+             const filteredProducts = products.filter(product => product.category === category);
+ 
+             res.json(filteredProducts);
+         } catch (error) {
+             console.error('Error parsing products data:', error);
+             res.status(500).json({ error: 'Failed to parse products data' });
+         }
+     }); */
 });
 
 app.listen(PORT, () => {

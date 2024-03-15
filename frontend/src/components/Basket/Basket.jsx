@@ -101,11 +101,10 @@ const Basket = () => {
                         +
                       </Button>
                     </div>
-
-                    <IconButton onClick={() => removeItem(index)}>
-                      <CloseIcon />
-                    </IconButton>
                   </div>
+                  <IconButton onClick={() => removeItem(index)}>
+                    <CloseIcon />
+                  </IconButton>
                 </div>
               ))}
             </div>
