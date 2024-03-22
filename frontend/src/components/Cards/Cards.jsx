@@ -5,7 +5,7 @@ import "./cards.css";
 import Loading from "../../assets/images/loading.gif";
 import ProductsContext from "../../context/ProductContext";
 
-import data from "../../data/data.json";
+/* import data from "../../data/data.json"; */
 
 const Cards = ({ category }) => {
   const { products, loading, fetchProductsByCategory } =
@@ -27,8 +27,6 @@ const Cards = ({ category }) => {
     );
   }
 
-  /* console.log("products", products); */
-  /* console.log("data", data); */
   return (
     <div className="product-list">
       {products.map((product) => (

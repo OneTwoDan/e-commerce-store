@@ -18,12 +18,24 @@ function Footer() {
         </Button>
       </div>
       <div className="footer-links-container">
-        <div className="footer-link">About</div>
-        <div className="footer-link">Store Locator</div>
-        <div className="footer-link">FAQs</div>
-        <div className="footer-link">News</div>
-        <div className="footer-link">Careers</div>
-        <div className="footer-link">Contact Us</div>
+        <a href="#top" className="footer-link">
+          About
+        </a>
+        <a href="#top" className="footer-link">
+          Store Locator
+        </a>
+        <a href="#top" className="footer-link">
+          FAQs
+        </a>
+        <a href="#top" className="footer-link">
+          News
+        </a>
+        <a href="#top" className="footer-link">
+          Careers
+        </a>
+        <a href="#top" className="footer-link">
+          Contact Us
+        </a>
       </div>
       <h5 className="footer-built-with-love">Built with love.</h5>
     </div>

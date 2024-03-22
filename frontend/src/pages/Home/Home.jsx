@@ -9,6 +9,7 @@ import "./home.css";
 const Home = () => {
   return (
     <div>
+      <div id="top"></div>
       <Navbar />
       <h2 className="department">Choose a department</h2>
       <div className="pictures">

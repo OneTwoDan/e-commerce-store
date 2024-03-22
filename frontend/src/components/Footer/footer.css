@@ -30,6 +30,12 @@
 
 .footer-link {
   margin: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+.footer-link:hover {
+  border-bottom: 1px solid black;
 }
 
 button.subscribe {

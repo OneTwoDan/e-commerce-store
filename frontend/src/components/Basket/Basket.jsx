@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Button from "@mui/material/Button";
@@ -72,12 +73,14 @@ const Basket = () => {
             <div className="basket-items">
               {basketItems.map((item, index) => (
                 <div key={index} className="item-summary">
-                  <div className="product-basket-image">
-                    <img
-                      src={item.defaultArticle.images[0].url}
-                      alt={item.defaultArticle.name}
-                    />
-                  </div>
+                  <Link to={`/details/${item.pk}`}>
+                    <div className="product-basket-image">
+                      <img
+                        src={item.defaultArticle.images[0].url}
+                        alt={item.defaultArticle.name}
+                      />
+                    </div>
+                  </Link>
                   <div className="item-details">
                     <div>
                       <p>{item.articles[0].name}</p>

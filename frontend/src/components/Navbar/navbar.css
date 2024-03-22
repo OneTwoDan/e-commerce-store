@@ -14,6 +14,7 @@
   transition: color 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
   padding: 10px 20px;
   border-radius: 10px;
+  color: black;
 }
 
 .category:hover {
