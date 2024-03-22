@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const axios = require('axios');
 
 async function fetchDataFromApi(category) {
@@ -12,14 +14,8 @@ async function fetchDataFromApi(category) {
             categories: getCategory(category)
         },
         headers: {
-            /* 'X-RapidAPI-Key': '9c8f9c31c0msha0be952da35dddep181571jsnd3689b44bbee',
-            'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com' */
-            /* 'X-RapidAPI-Key': 'a114a2b431mshbbe7c8164787176p1b09f7jsne444fa8553f5',
-            'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com' */
-            /* 'X-RapidAPI-Key': 'e7e6150844msh698703697b873c9p1dad23jsn50d82dd9f8ac',
-            'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com' */
-            'X-RapidAPI-Key': '9cbebe926amsha6e857b161c4f4fp12efa1jsnd8ece60e5245',
-            'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
+            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
+            'X-RapidAPI-Host': process.env.RAPIDAPI_HOST
         }
     };
 
