@@ -7,38 +7,27 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
+let cachedProducts = {};
+
 app.get('/', (req, res) => {
     res.send('Hello from the backend!');
 });
 
 app.get('/api/products/:category', async (req, res) => {
+    console.log('cachedProducts', cachedProducts)
     const category = req.params.category;
     try {
-        const products = await fetchHmProducts(category);
-        res.json(products);
+        if (cachedProducts[category]) {
+            res.json(cachedProducts[category]);
+        } else {
+            const products = await fetchHmProducts(category);
+            cachedProducts[category] = products;
+            res.json(products);
+        }
     } catch (error) {
         console.error('Error fetching products:', error);
         res.status(500).json({ error: 'Failed to fetch products' });
     }
-
-    /*  fs.readFile('data/data.json', 'utf8', (err, data) => {
-         if (err) {
-             console.error('Error reading products file:', err);
-             res.status(500).json({ error: 'Failed to read products file' });
-             return;
-         }
- 
-         try {
-             const products = JSON.parse(data);
- 
-             const filteredProducts = products.filter(product => product.category === category);
- 
-             res.json(filteredProducts);
-         } catch (error) {
-             console.error('Error parsing products data:', error);
-             res.status(500).json({ error: 'Failed to parse products data' });
-         }
-     }); */
 });
 
 app.listen(PORT, () => {
