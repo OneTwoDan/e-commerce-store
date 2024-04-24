@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./cards.css";
@@ -11,6 +11,9 @@ const Cards = ({ category }) => {
   const { products, loading, fetchProductsByCategory } =
     useContext(ProductsContext);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(8);
+
   useEffect(() => {
     fetchProductsByCategory(category);
   }, [category, fetchProductsByCategory]);
@@ -18,6 +21,15 @@ const Cards = ({ category }) => {
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading) {
     return (
@@ -28,22 +40,33 @@ const Cards = ({ category }) => {
   }
 
   return (
-    <div className="product-list">
-      {products.map((product) => (
-        <div key={product.pk} className="product-card">
-          <Link to={`/details/${product.pk}`} className="link-style">
-            <img
-              src={product.defaultArticle.images[0].url}
-              alt={product.defaultArticle.name}
-            />
-            <div className="product-info">
-              <h3>{product.articles[0].name}</h3>
-              <p>${product.whitePrice.value}</p>
-            </div>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="pagination">
+        {Array.from({
+          length: Math.ceil(products.length / productsPerPage),
+        }).map((_, index) => (
+          <button key={index} onClick={() => paginate(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
+      <div className="product-list">
+        {currentProducts.map((product) => (
+          <div key={product.pk} className="product-card">
+            <Link to={`/details/${product.pk}`} className="link-style">
+              <img
+                src={product.defaultArticle.images[0].url}
+                alt={product.defaultArticle.name}
+              />
+              <div className="product-info">
+                <h3>{product.articles[0].name}</h3>
+                <p>${product.whitePrice.value}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
