@@ -5,7 +5,8 @@ require('dotenv').config();
 
 async function signUp(req, res) {
     try {
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        email = email.toLowerCase();
 
         const existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
@@ -27,7 +28,8 @@ async function signUp(req, res) {
 
 async function login(req, res) {
     try {
-        const { email, password } = req.body;
+        let { email, password } = req.body;
+        email = email.toLowerCase();
 
         const user = await User.findOne({ where: { email } });
         if (!user) {
