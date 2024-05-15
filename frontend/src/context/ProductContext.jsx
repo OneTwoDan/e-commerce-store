@@ -11,7 +11,7 @@ export const ProductsProvider = ({ children }) => {
   const fetchProductsByCategory = async (category) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/products/${category}`
+        `http://localhost:5000/products/${category}`
       );
       setProducts(response.data.results);
       setLoading(false);
