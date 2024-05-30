@@ -14,8 +14,8 @@ async function fetchDataFromApi(category) {
             categories: getCategory(category)
         },
         headers: {
-            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
-            'X-RapidAPI-Host': process.env.RAPIDAPI_HOST
+            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY2,
+            'X-RapidAPI-Host': process.env.RAPIDAPI_HOST2
         }
     };
 
