@@ -10,11 +10,9 @@ export const ProductsProvider = ({ children }) => {
 
   const fetchProductsByCategory = async (category) => {
     try {
-      /* const response = await axios.get(
-        `http://localhost:5000/api/products/${category}`
-      ); */
+      /* const response = await axios.get(`http://localhost:5000/${category}`); */
       const response = await axios.get(
-        `https://ecommerce-store-backend-za3f.onrender.com/api/products/${category}`
+        `https://ecommerce-store-backend-za3f.onrender.com/${category}`
       );
       setProducts(response.data.results);
       setLoading(false);
